@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MeetingList } from "../components/MeetingList";
+import AuthButton from "@/components/AuthButton";
 
 export default function Home() {
   const [upcomingMeetings, setUpcomingMeetings] = useState([]);
@@ -60,6 +61,7 @@ export default function Home() {
         <p className="text-slate-400">
           Your meetings, organized and summarized.
         </p>
+        <AuthButton />
       </header>
 
       <main className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
