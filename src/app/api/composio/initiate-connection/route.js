@@ -16,7 +16,7 @@ export async function POST() {
   });
 
   const authConfigId = "ac_2jYKD5yyLtaC";
-  const callbackUrl = "http://localhost:3000/composio-callback";
+  const callbackUrl = process.env.COMPOSIO_CALLBACK_URL;
   const userId = session.user.email;
 
   try {
@@ -25,7 +25,10 @@ export async function POST() {
     const connRequest = await composio.connectedAccounts.initiate(
       userId,
       authConfigId,
-      { callbackUrl: callbackUrl }
+      {
+        callbackUrl: callbackUrl,
+        allowMultiple: true,
+      }
     );
 
     console.log("SDK response received:", connRequest);
